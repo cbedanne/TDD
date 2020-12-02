@@ -99,6 +99,19 @@ public class CaesarCipherTest {
         assertThat(result).isEqualTo("BB");
     }
 
+    @Test
+    public void when_AAZ_Offset2_CCB(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 2;
+        //When
+        String result = caesarCipherEncoder.encode("AAZ", shift);
+
+        //Then
+        assertThat(result).isEqualTo("CCB");
+    }
+
 
 //    @Test
 //    public void when_SimpleAndShift1_Then_Tjnqmf(){

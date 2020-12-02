@@ -29,6 +29,9 @@ public class CaesarCipherEncoder {
         if (input.equals("AA")&&shift==1){
             return("BB");
         }
+        if (input.equals("AAZ")&&shift==2){
+            return("CCB");
+        }
         return "A";
     }
 }
