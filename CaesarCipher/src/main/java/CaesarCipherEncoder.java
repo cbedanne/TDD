@@ -17,11 +17,8 @@ public class CaesarCipherEncoder {
         if (shift==0 || shift%26L==0){
             return(input);
         }
-        if (input.equals("A")&&shift==1) {
-            return("B");
-        }
-        if (input.equals("B")&&shift==1) {
-            return("C");
+        if (input.length() == 1 && shift==1) {
+            return (char)(input.charAt(0) + 1) + "";
         }
         if (input.equals("AA")&&shift==1){
             return("BB");
