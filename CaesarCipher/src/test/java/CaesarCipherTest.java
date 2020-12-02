@@ -1,6 +1,8 @@
 import org.junit.Test;
 
+
 import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class CaesarCipherTest {
 
@@ -19,8 +21,9 @@ public class CaesarCipherTest {
     Shift is 26 => "AZA" -> "AZA" - Done
     Shift is 1 => "AZB" -> "BAC" - Done
     Shift is -1 => "AZB" -> "ZYA" - Done
-    Shift is 53=> "AZB" -> "BAC"
-    Shift is -79=> "AZB" -> "ZYA"
+    Shift is 53=> "AZB" -> "BAC" - -Done
+    Shift is -79=> "AZB" -> "ZYA" - Done
+    Shift is 1 => "AZb" -> "BAc" LowerCase!
      */
 
     @Test

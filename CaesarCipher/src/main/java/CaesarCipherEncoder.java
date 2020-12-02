@@ -14,6 +14,7 @@ public class CaesarCipherEncoder {
 
     }
 
+
     private String getEncodedLetter(String input, int shift, int index) {
         int encodedCharacter = input.charAt(index) + shift % alphabetLetterNumber;
         if (encodedCharacter >"Z".charAt(0)) {
