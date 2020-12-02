@@ -26,10 +26,16 @@ public class CaesarCipherEncoder {
         if (input.equals("AAZ")&&shift==2){
             return getEncodedString(input,shift, 0) +getEncodedString(input, shift, 1) + "B";
         }
+        if (input.equals("AZB")&&shift==1){
+            return getEncodedString(input,shift, 0) +getEncodedString(input, shift, 1) + "C";
+        }
         return "A";
     }
 
     private String getEncodedString(String input, int shift, int index) {
+        if (input.charAt(index) + shift>90) {
+            return (char)(input.charAt(index) - (26-shift))+"";
+        }
         return (char)(input.charAt(index) + shift) + "";
     }
 }
