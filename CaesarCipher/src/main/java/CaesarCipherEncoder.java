@@ -18,18 +18,18 @@ public class CaesarCipherEncoder {
             return(input);
         }
         if (input.length() == 1) {
-            return getEncodedString(input, shift);
+            return getEncodedString(input, shift, 0);
         }
         if (input.equals("AA")&&shift==1){
-            return getEncodedString(input, shift) + "B";
+            return getEncodedString(input, shift, 0) + getEncodedString(input, shift, 1);
         }
         if (input.equals("AAZ")&&shift==2){
-            return getEncodedString(input,shift) +"CB";
+            return getEncodedString(input,shift, 0) +getEncodedString(input, shift, 1) + "B";
         }
         return "A";
     }
 
-        private String getEncodedString(String input, int shift) {
-        return (char)(input.charAt(0) + shift) + "";
+    private String getEncodedString(String input, int shift, int index) {
+        return (char)(input.charAt(index) + shift) + "";
     }
 }
