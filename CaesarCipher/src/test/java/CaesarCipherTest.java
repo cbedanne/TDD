@@ -8,17 +8,18 @@ public class CaesarCipherTest {
     Shift is 1 => "Simple" -> "Tjnqmf" - On hold
     Shift is 0 => "Simple" ->  "Simple" - On hold
     Sift is -1 => "A" -> "Z" - On hold
-    Shift is 0 => "A" -> "A"
-    Shift is 0 => "B" -> "B"
-    Shift is 1 => "A" -> "B"
-    Shift is 1 => "B" -> "C"
-    Shift is 2 => "D" -> "F"
-    Shift is 0 => "AA" -> "AA"
-    Shift is 1 => "AA" -> "BB"
-    Shift is 2 => "AAZ" -> "CCB"
-    Shift is 26 => "AZA" -> "AZA"
-    Shift is 1 => "AZB" -> "BAC"
-    Shift is -1 => "azb" -> "zya"
+    Shift is 0 => "A" -> "A" - Done
+    Shift is 0 => "B" -> "B"  - Done
+    Shift is 1 => "A" -> "B" - Done
+    Shift is 1 => "B" -> "C" - Done
+    Shift is 2 => "D" -> "F" - Done
+    Shift is 0 => "AA" -> "AA" - Done
+    Shift is 1 => "AA" -> "BB" - Done
+    Shift is 2 => "AAZ" -> "CCB" - Done
+    Shift is 26 => "AZA" -> "AZA" - Done
+    Shift is 1 => "AZB" -> "BAC" - Done
+    Shift is -1 => "AZB" -> "ZYA" - Done
+    Shift is 53=> "AZB" -> "BAC"
      */
 
     @Test
@@ -148,6 +149,19 @@ public class CaesarCipherTest {
         //Given
         CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
         int shift = 1;
+        //When
+        String result = caesarCipherEncoder.encode("AZB", shift);
+
+        //Then
+        assertThat(result).isEqualTo("BAC");
+    }
+
+    @Test
+    public void when_AZB_Offset53_BAC(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 53;
         //When
         String result = caesarCipherEncoder.encode("AZB", shift);
 
