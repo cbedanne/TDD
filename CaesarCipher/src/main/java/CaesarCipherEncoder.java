@@ -1,23 +1,17 @@
 public class CaesarCipherEncoder {
-    public String encode(String input, int shift) {
+    public String encode(String stringToEncode, int shift) {
 
-//        if(shift==0){
-//            return input;
-//        }
-//        if(input.equals("A")){
-//            return input.c
-//        }
-        char[] value  = input.toCharArray();
-        String result="";
-        for (int i =0 ; i<value.length; i++){
-           String encodeLetter =getEncodedString(input,shift,i);
-           result=result+encodeLetter;
+        char[] charsToEncode  = stringToEncode.toCharArray();
+        String encodedString="";
+        for (int i =0 ; i<charsToEncode.length; i++){
+           String encodedChar = getEncodedLetter(stringToEncode,shift,i);
+           encodedString=encodedString+encodedChar;
         }
-        return result;
+        return encodedString;
 
     }
 
-    private String getEncodedString(String input, int shift, int index) {
+    private String getEncodedLetter(String input, int shift, int index) {
         if (input.charAt(index) + shift>"Z".charAt(0)) {
             return (char)(input.charAt(index) - (26-shift))+"";
         }
