@@ -24,11 +24,13 @@ public class CaesarCipherTest {
     @Test
     public void when_SimpleAndShift0_Then_Simple(){
         //Given
-
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift=0;
         //When
+        String result=caesarCipherEncoder.encode("Simple",shift);
 
         //Then
-        assertThat("Simple").isEqualTo(new CaesarCipherEncoder().encode("Simple",0));
+        assertThat("Simple").isEqualTo(result);
 
     }
 }
