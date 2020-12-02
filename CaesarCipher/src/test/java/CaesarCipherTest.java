@@ -32,6 +32,19 @@ public class CaesarCipherTest {
         isEqualTo("A");
     }
 
+    @Test
+    public void when_B_Offset0_B(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 0;
+        //When
+        String result = caesarCipherEncoder.encode("B", shift);
+
+        //Then
+        assertThat(result).isEqualTo("B");
+    }
+
 
 
 //    @Test

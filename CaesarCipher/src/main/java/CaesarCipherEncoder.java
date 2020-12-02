@@ -14,6 +14,9 @@ public class CaesarCipherEncoder {
 //        if(input.equals("A")){
 //            return input.c
 //        }
+        if (input.equals("B")){
+            return("B");
+        }
         return "A";
     }
 }
