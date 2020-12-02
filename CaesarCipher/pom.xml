@@ -8,10 +8,6 @@
     <artifactId>TDD</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>ModuleFirstTry</module>
-        <module>CaesarCipher</module>
-    </modules>
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
     <dependencies>

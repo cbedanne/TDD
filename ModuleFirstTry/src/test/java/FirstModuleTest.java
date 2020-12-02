@@ -1,10 +1,14 @@
 import org.junit.Test;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class FirstTest {
+
+public class FirstModuleTest {
 
     @Test
-    public void testTrue(){
-        assertThat(1).isEqualTo(2);
+    public void firstOne(){
+
+        assertThat(Boolean.TRUE);
+
     }
 }
