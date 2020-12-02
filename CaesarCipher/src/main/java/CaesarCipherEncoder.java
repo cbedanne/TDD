@@ -1,12 +1,5 @@
 public class CaesarCipherEncoder {
     public String encode(String input, int shift) {
-//        char[] value  = input.toCharArray();
-//        for (int i =0 ; i<value.length; i++){
-//           char letter =value[i];
-////           letter = (char)letter+shift;
-//
-//        }
-
 
 //        if(shift==0){
 //            return input;
@@ -16,6 +9,12 @@ public class CaesarCipherEncoder {
 //        }
         if (shift==0 || shift%26L==0){
             return(input);
+        }
+        char[] value  = input.toCharArray();
+        String result="";
+        for (int i =0 ; i<value.length; i++){
+           String encodeLetter =getEncodedString(input,shift,i);
+           result=result+encodeLetter;
         }
         if (input.length() == 1) {
             return getEncodedString(input, shift, 0);
