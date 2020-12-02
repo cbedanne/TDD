@@ -15,8 +15,8 @@ public class CaesarCipherEncoder {
         if (input.charAt(index) + shift%26>"Z".charAt(0)) {
             return (char)(input.charAt(index) - (26-shift%26))+"";
         }
-        if (input.charAt(index) + shift<"A".charAt(0)) {
-            return (char)(input.charAt(index) + (26+shift))+"";
+        if (input.charAt(index) + shift%26<"A".charAt(0)) {
+            return (char)(input.charAt(index) + (26+shift%26))+"";
         }
         return (char)(input.charAt(index) + shift%26) + "";
     }

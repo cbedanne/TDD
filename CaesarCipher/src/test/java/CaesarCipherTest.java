@@ -20,6 +20,7 @@ public class CaesarCipherTest {
     Shift is 1 => "AZB" -> "BAC" - Done
     Shift is -1 => "AZB" -> "ZYA" - Done
     Shift is 53=> "AZB" -> "BAC"
+    Shift is -79=> "AZB" -> "ZYA"
      */
 
     @Test
@@ -175,6 +176,19 @@ public class CaesarCipherTest {
         //Given
         CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
         int shift = -1;
+        //When
+        String result = caesarCipherEncoder.encode("AZB", shift);
+
+        //Then
+        assertThat(result).isEqualTo("ZYA");
+    }
+
+    @Test
+    public void when_AZB_OffsetMinus79_ZYA(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = -79;
         //When
         String result = caesarCipherEncoder.encode("AZB", shift);
 
