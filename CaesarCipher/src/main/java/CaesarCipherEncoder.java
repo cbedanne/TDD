@@ -14,7 +14,7 @@ public class CaesarCipherEncoder {
 //        if(input.equals("A")){
 //            return input.c
 //        }
-        if (shift==0 || shift==26){
+        if (shift==0 || shift%26L==0){
             return(input);
         }
         if (input.equals("A")&&shift==1) {
