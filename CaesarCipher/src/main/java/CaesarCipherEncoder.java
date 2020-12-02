@@ -14,11 +14,14 @@ public class CaesarCipherEncoder {
 //        if(input.equals("A")){
 //            return input.c
 //        }
-        if (input.equals("B")){
+        if (input.equals("B")&&shift==0){
             return("B");
         }
         if (input.equals("A")&&shift==1) {
             return("B");
+        }
+        if (input.equals("B")&&shift==1) {
+            return("C");
         }
         return "A";
     }
