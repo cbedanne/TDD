@@ -86,6 +86,19 @@ public class CaesarCipherTest {
                 isEqualTo("AA");
     }
 
+    @Test
+    public void when_AA_Offset1_BB(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 1;
+        //When
+        String result = caesarCipherEncoder.encode("AA", shift);
+
+        //Then
+        assertThat(result).isEqualTo("BB");
+    }
+
 
 //    @Test
 //    public void when_SimpleAndShift1_Then_Tjnqmf(){
