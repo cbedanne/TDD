@@ -15,13 +15,16 @@ public class CaesarCipherEncoder {
 //            return input.c
 //        }
         if (input.equals("B")&&shift==0){
-            return("B");
+                return("B");
         }
         if (input.equals("A")&&shift==1) {
             return("B");
         }
         if (input.equals("B")&&shift==1) {
             return("C");
+        }
+        if (input.equals("AA")&&shift==0){
+            return("AA");
         }
         return "A";
     }

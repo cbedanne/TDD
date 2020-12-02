@@ -71,6 +71,20 @@ public class CaesarCipherTest {
         assertThat(result).isEqualTo("C");
     }
 
+    @Test
+    public void when_AA_Offset0_AA(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 0;
+        //When
+        String result = caesarCipherEncoder.encode("AA", shift);
+
+        //Then
+        assertThat(result).
+
+                isEqualTo("AA");
+    }
 
 
 //    @Test
