@@ -126,7 +126,18 @@ public class HangManTest {
         assertThat(hangman.checkLetter(letter)).isEqualTo("-----t");
     }
 
+    @Test
+    public void when_secretCompletedWord__e__e__Proposed_t_Then_e__et(){
+        //Given
+        //When
+        Hangman hangman=new Hangman();
+        hangman.setSecretWord("secret");
 
+        hangman.checkLetter("e");
+        String result= hangman.checkLetter("t");
+        //Then
+        assertThat(result).isEqualTo("-e--et");
+    }
 
 
 }
