@@ -4,6 +4,7 @@ public class Hangman {
 
     String letter1 = "";
     String letter2 = "";
+    private String letter3="";
 
     public Hangman() {
     }
@@ -12,14 +13,16 @@ public class Hangman {
 
         if (letter1.equals("")) {
             letter1 = letter;
-        } else {
+        } else if (letter2.equals("")){
             letter2 = letter;
+        }else {
+            letter3 = letter;
         }
 
 
         String foundString = "";
         for (char c : secretWord.toCharArray()) {
-            foundString += (letter1.equals(c + "") || letter2.equals(c +"") ? c : "-");
+            foundString += (letter1.equals(c + "") || letter2.equals(c +"")|| letter3.equals(c +"") ? c : "-");
         }
 
 

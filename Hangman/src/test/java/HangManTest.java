@@ -15,6 +15,7 @@ public class HangManTest {
     When SecretWord secret proposed t return -----t Done
     When SecretWord secret completed word -e--e- proposed t return -e--et  Done
     When SecretWord secret completed word -e--e- proposed z return -e--e-  Done
+    When SecretWord secret completed word -e--et proposed s return se--et  Done
      */
 
     @Test
@@ -149,6 +150,20 @@ public class HangManTest {
         String result= hangman.checkLetter("z");
         //Then
         assertThat(result).isEqualTo("-e--e-");
+    }
+
+    @Test
+    public void when_secretCompletedWord__e__et_Proposed_s_Then_se__et(){
+        //Given
+        //When
+        Hangman hangman=new Hangman();
+        hangman.setSecretWord("secret");
+
+        hangman.checkLetter("e");
+        hangman.checkLetter("t");
+        String result= hangman.checkLetter("s");
+        //Then
+        assertThat(result).isEqualTo("se--et");
     }
 
 
