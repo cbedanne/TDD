@@ -23,7 +23,8 @@ public class CaesarCipherTest {
     Shift is -1 => "AZB" -> "ZYA" - Done
     Shift is 53=> "AZB" -> "BAC" - -Done
     Shift is -79=> "AZB" -> "ZYA" - Done
-    Shift is 1 => "AZb" -> "BAc" LowerCase!
+    Shift is 1 => "AZb" -> "BAc" - Done
+    Shift is 1 => "Azb" -> "Bac"
      */
 
     @Test
@@ -210,6 +211,19 @@ public class CaesarCipherTest {
 
         //Then
         assertThat(result).isEqualTo("BAc");
+    }
+
+    @Test
+    public void when_Azb_Offset1_Bac(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 1;
+        //When
+        String result = caesarCipherEncoder.encode("Azb", shift);
+
+        //Then
+        assertThat(result).isEqualTo("Bac");
     }
 
 

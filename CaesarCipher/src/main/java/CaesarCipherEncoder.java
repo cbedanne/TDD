@@ -24,6 +24,14 @@ public class CaesarCipherEncoder {
             if (encodedCharacter < "A".charAt(0)) {
                 return (char) (input.charAt(index) + (alphabetLetterNumber + shift % alphabetLetterNumber)) + "";
             }
+        }else
+        {
+            if (encodedCharacter > "z".charAt(0)) {
+                return (char) (input.charAt(index) - (alphabetLetterNumber - shift % alphabetLetterNumber)) + "";
+            }
+            if (encodedCharacter < "a".charAt(0)) {
+                return (char) (input.charAt(index) + (alphabetLetterNumber + shift % alphabetLetterNumber)) + "";
+            }
         }
         return (char) (encodedCharacter) + "";
     }
