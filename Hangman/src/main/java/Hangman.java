@@ -7,18 +7,19 @@ public class Hangman {
 
     public String checkLetter(String letter) {
 
+        int secretWordlength=secretWord.length();
+        String foundString="";
         if (secretWord.contains(letter)&&letter!="") {
-            String foundString= buildFoundString(letter);
-            return foundString;
-        }
+            foundString= buildFoundString(letter);
 
-        if (letter.equals(secretWord)) {
-            return secretWord;
         }
-        if(secretWord.length()==2){
-            return "--";
+        else
+        {
+            for (int i=1;i<=secretWordlength;i++){
+                foundString=foundString+"-";
+            }
         }
-        return "-";
+        return foundString;
     }
 
     private String buildFoundString(String letter) {

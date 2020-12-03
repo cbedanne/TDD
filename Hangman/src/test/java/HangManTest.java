@@ -100,7 +100,17 @@ public class HangManTest {
         assertThat(hangman.checkLetter(letter)).isEqualTo("-e--e-");
     }
 
-
+    @Test
+    public void when_secret_Proposed_g_Then______(){
+        //Given
+        String letter="g";
+        String secretWord="secret";
+        //When
+        Hangman hangman=new Hangman();
+        hangman.setSecretWord(secretWord);
+        //Then
+        assertThat(hangman.checkLetter(letter)).isEqualTo("------");
+    }
 
 
 }
