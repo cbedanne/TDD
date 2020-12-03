@@ -19,11 +19,9 @@ public class HangManTest {
         //Given
         String letter="";
         //When
-
+        Hangman hangman=new Hangman();
         //Then
-        assertThat(new Hangman().checkLetter(letter)).isEqualTo("-");
-
-        assertThat(Boolean.TRUE);
+        assertThat(hangman.checkLetter(letter)).isEqualTo("-");
     }
 
 
