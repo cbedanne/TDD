@@ -1,6 +1,10 @@
 public class CaesarCipherEncoder {
 
     public static final int alphabetLetterNumber = 26;
+    public static final int A_ASCIICODE = 'A';
+    public static final int Z_ASCIICODE = 'Z';
+    public static final int a_ASCIICODE = 'a';
+    public static final int z_ASCIICODE = 'z';
 
     public String encode(String stringToEncode, int shift) {
 
@@ -8,7 +12,7 @@ public class CaesarCipherEncoder {
         String encodedString="";
         for (int i =0 ; i<charsToEncode.length; i++){
             String encodedLetter;
-            if ((stringToEncode.charAt(i)>64 && stringToEncode.charAt(i)<91)||(stringToEncode.charAt(i)>96 && stringToEncode.charAt(i)<123)) {
+            if ((stringToEncode.charAt(i)>= A_ASCIICODE && stringToEncode.charAt(i)<= Z_ASCIICODE)||(stringToEncode.charAt(i)>= a_ASCIICODE && stringToEncode.charAt(i)<= z_ASCIICODE)) {
                 encodedLetter = getEncodedLetter(stringToEncode, shift, i);
             }else
             {
@@ -20,22 +24,23 @@ public class CaesarCipherEncoder {
 
     }
 
-
     private String getEncodedLetter(String input, int shift, int index) {
         int encodedCharacter = input.charAt(index) + shift % alphabetLetterNumber;
-        if (input.charAt(index)>64 && input.charAt(index)<91) {
-            if (encodedCharacter > "Z".charAt(0)) {
-                return (char) (input.charAt(index) - (alphabetLetterNumber - shift % alphabetLetterNumber)) + "";
+        String shiftedCharWhenCharGreaterThanLastAlphabetLetter = (char) (input.charAt(index) - (alphabetLetterNumber - shift % alphabetLetterNumber)) + "";
+        String shiftedCharWhenCharLowerFirstAlphabetLetter = (char)(input.charAt(index) + (alphabetLetterNumber + shift % alphabetLetterNumber))+"";
+        if (input.charAt(index)>=A_ASCIICODE && input.charAt(index)<=Z_ASCIICODE) {
+            if (encodedCharacter > Z_ASCIICODE) {
+                return shiftedCharWhenCharGreaterThanLastAlphabetLetter;
             }
-            if (encodedCharacter < "A".charAt(0)) {
-                return (char) (input.charAt(index) + (alphabetLetterNumber + shift % alphabetLetterNumber)) + "";
+            if (encodedCharacter < A_ASCIICODE) {
+                return shiftedCharWhenCharLowerFirstAlphabetLetter;
             }
-        }else if (input.charAt(index)>96 && input.charAt(index)<123) {
-            if (encodedCharacter > "z".charAt(0)) {
-                return (char) (input.charAt(index) - (alphabetLetterNumber - shift % alphabetLetterNumber)) + "";
+        }else if (input.charAt(index)>=a_ASCIICODE && input.charAt(index)<=z_ASCIICODE) {
+            if (encodedCharacter > z_ASCIICODE) {
+                return shiftedCharWhenCharGreaterThanLastAlphabetLetter;
             }
-            if (encodedCharacter < "a".charAt(0)) {
-                return (char) (input.charAt(index) + (alphabetLetterNumber + shift % alphabetLetterNumber)) + "";
+            if (encodedCharacter < a_ASCIICODE) {
+                return shiftedCharWhenCharLowerFirstAlphabetLetter;
             }
         }
         return (char) (encodedCharacter) + "";
