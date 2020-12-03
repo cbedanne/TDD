@@ -24,7 +24,8 @@ public class CaesarCipherTest {
     Shift is 53=> "AZB" -> "BAC" - -Done
     Shift is -79=> "AZB" -> "ZYA" - Done
     Shift is 1 => "AZb" -> "BAc" - Done
-    Shift is 1 => "Azb" -> "Bac"
+    Shift is 1 => "Azb" -> "Bac" - Done
+    Shift is 1 => "Hello world !" -> "Ifmmp xpsme !"
      */
 
     @Test
@@ -224,6 +225,17 @@ public class CaesarCipherTest {
 
         //Then
         assertThat(result).isEqualTo("Bac");
+    }@Test
+    public void when_Hello_World_Offset1_Ifmmp_xpsme(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 1;
+        //When
+        String result = caesarCipherEncoder.encode("Hello world !", shift);
+
+        //Then
+        assertThat(result).isEqualTo("Ifmmp xpsme !");
     }
 
 
