@@ -199,6 +199,19 @@ public class CaesarCipherTest {
         assertThat(result).isEqualTo("ZYA");
     }
 
+    @Test
+    public void when_AZb_Offset1_BAc(){
+
+        //Given
+        CaesarCipherEncoder caesarCipherEncoder = new CaesarCipherEncoder();
+        int shift = 1;
+        //When
+        String result = caesarCipherEncoder.encode("AZb", shift);
+
+        //Then
+        assertThat(result).isEqualTo("BAc");
+    }
+
 
 //    @Test
 //    public void when_SimpleAndShift1_Then_Tjnqmf(){

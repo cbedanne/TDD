@@ -17,11 +17,13 @@ public class CaesarCipherEncoder {
 
     private String getEncodedLetter(String input, int shift, int index) {
         int encodedCharacter = input.charAt(index) + shift % alphabetLetterNumber;
-        if (encodedCharacter >"Z".charAt(0)) {
-            return (char)(input.charAt(index) - (alphabetLetterNumber -shift% alphabetLetterNumber))+"";
-        }
-        if (encodedCharacter <"A".charAt(0)) {
-            return (char)(input.charAt(index) + (alphabetLetterNumber +shift% alphabetLetterNumber))+"";
+        if (input.charAt(index)>64 && input.charAt(index)<92) {
+            if (encodedCharacter > "Z".charAt(0)) {
+                return (char) (input.charAt(index) - (alphabetLetterNumber - shift % alphabetLetterNumber)) + "";
+            }
+            if (encodedCharacter < "A".charAt(0)) {
+                return (char) (input.charAt(index) + (alphabetLetterNumber + shift % alphabetLetterNumber)) + "";
+            }
         }
         return (char) (encodedCharacter) + "";
     }
