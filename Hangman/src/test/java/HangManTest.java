@@ -38,6 +38,18 @@ public class HangManTest {
         assertThat(hangman.checkLetter(letter)).isEqualTo("--");
     }
 
+    @Test
+    public void when_A_Proposed_A_Then_A(){
+        //Given
+        String letter="A";
+        String secretWord="A";
+        //When
+        Hangman hangman=new Hangman();
+        hangman.setSecretWord(secretWord);
+        //Then
+        assertThat(hangman.checkLetter(letter)).isEqualTo("A");
+    }
+
 
 
 
