@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>CaesarCipher</module>
+        <module>Hangman</module>
     </modules>
 
     <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->

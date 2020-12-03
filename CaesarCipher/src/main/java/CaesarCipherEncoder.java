@@ -12,7 +12,7 @@ public class CaesarCipherEncoder {
         String encodedString="";
         for (int i =0 ; i<charsToEncode.length; i++){
             String encodedLetter;
-            if ((stringToEncode.charAt(i)>= A_ASCIICODE && stringToEncode.charAt(i)<= Z_ASCIICODE)||(stringToEncode.charAt(i)>= a_ASCIICODE && stringToEncode.charAt(i)<= z_ASCIICODE)) {
+            if (isALetter(stringToEncode, i)) {
                 encodedLetter = getEncodedLetter(stringToEncode, shift, i);
             }else
             {
@@ -22,6 +22,10 @@ public class CaesarCipherEncoder {
         }
         return encodedString;
 
+    }
+
+    private boolean isALetter(String stringToEncode, int i) {
+        return (stringToEncode.charAt(i) >= A_ASCIICODE && stringToEncode.charAt(i) <= Z_ASCIICODE) || (stringToEncode.charAt(i) >= a_ASCIICODE && stringToEncode.charAt(i) <= z_ASCIICODE);
     }
 
     private String getEncodedLetter(String input, int shift, int index) {
