@@ -4,13 +4,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class HangManTest {
     /*
-    When SecretWord A proposed nothing _
-    When SecretWord AB proposed nothing __
-    When SecretWord A proposed A return A
-    When SecretWord A proposed B return -
-    When SecretWord AB proposed C return --
-    When SecretWord ABC proposed B return -B-
-    When SecretWord secret proposed e return -e--e-
+    When SecretWord A proposed nothing _  Done
+    When SecretWord AB proposed nothing __  Done
+    When SecretWord A proposed A return A  Done
+    When SecretWord A proposed B return -  Done
+    When SecretWord AB proposed C return --  Done
+    When SecretWord ABC proposed B return -B-  Done
+    When SecretWord secret proposed e return -e--e-  Done
     When SecretWord secret proposed g return ------
     When SecretWord secret completed word -e--e- proposed z return -e--e-
     When SecretWord secret completed word -e--e- proposed t return -e--et
@@ -86,6 +86,18 @@ public class HangManTest {
         hangman.setSecretWord(secretWord);
         //Then
         assertThat(hangman.checkLetter(letter)).isEqualTo("-B-");
+    }
+
+    @Test
+    public void when_secret_Proposed_e_Then_e__e_(){
+        //Given
+        String letter="e";
+        String secretWord="secret";
+        //When
+        Hangman hangman=new Hangman();
+        hangman.setSecretWord(secretWord);
+        //Then
+        assertThat(hangman.checkLetter(letter)).isEqualTo("-e--e-");
     }
 
 
